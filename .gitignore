@@ -1,0 +1,51 @@
+# .gitignore — tells Git which files to NEVER upload to GitHub.
+# WHY: Git is built for small text files (code, notes). Big binary files like
+# renders and simulation caches bloat the repo forever (even after deleting them)
+# and fill up your drive every time you clone. Keep those on an external drive
+# or cloud storage instead.
+# Each line below is a "pattern". * means "anything", a trailing / means "folder".
+
+# --- Blender backup files ---
+# Blender makes .blend1, .blend2... every time you save. Pure clutter in Git.
+*.blend[0-9]
+*.blend[0-9][0-9]
+
+# --- Blender render output ---
+# Rendered frames/images. Huge, and you can always re-render them.
+renders/
+render/
+output/
+tmp/
+
+# --- Simulation / bake caches ---
+# Fluid, smoke, cloth, and particle bakes. These can be tens of GB each.
+cache/
+cache_*/
+blendcache_*/
+*.bphys
+*.vdb
+*.uni
+*.abc
+
+# --- Large downloaded assets ---
+# HDRIs and texture packs. Store them outside the repo.
+*.hdr
+*.exr
+
+# --- Video files ---
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# --- Python clutter ---
+# Python creates these automatically when running scripts. Never needed in Git.
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Operating system junk ---
+Thumbs.db
+desktop.ini
+.DS_Store
